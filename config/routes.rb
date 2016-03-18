@@ -1,4 +1,54 @@
 Rails.application.routes.draw do
+  get 'ticket_details/index'
+
+  get 'ticket_details/show'
+
+  get 'viewings/index'
+
+  get 'viewings/create'
+
+  get 'viewings/new'
+
+  get 'viewings/edit'
+
+  get 'viewings/show'
+
+  get 'viewings/update'
+
+  get 'viewings/destroy'
+
+  get 'ticket_purchases/index'
+
+  get 'ticket_purchases/show'
+
+  get 'auditoriums/index'
+
+  get 'auditoriums/create'
+
+  get 'auditoriums/new'
+
+  get 'auditoriums/edit'
+
+  get 'auditoriums/show'
+
+  get 'auditoriums/update'
+
+  get 'auditoriums/destroy'
+
+  get 'movies/index'
+
+  get 'movies/create'
+
+  get 'movies/new'
+
+  get 'movies/edit'
+
+  get 'movies/show'
+
+  get 'movies/update'
+
+  get 'movies/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
