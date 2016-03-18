@@ -1,11 +1,14 @@
 class ViewingsController < ApplicationController
   def index
+    @viewings = Viewing.all
   end
 
   def create
+    @viewing = Viewing.new
   end
 
   def new
+    @viewing = Viewing.new
   end
 
   def edit
@@ -18,5 +21,6 @@ class ViewingsController < ApplicationController
   end
 
   def destroy
+    @viewing.destroy
   end
 end

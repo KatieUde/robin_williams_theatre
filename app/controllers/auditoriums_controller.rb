@@ -1,11 +1,14 @@
 class AuditoriumsController < ApplicationController
+
   def index
+    @auditoriums = Auditorium.all
   end
 
   def create
   end
 
   def new
+    @auditorium = Auditorium.new
   end
 
   def edit
@@ -18,5 +21,6 @@ class AuditoriumsController < ApplicationController
   end
 
   def destroy
+    @auditorium.destroy
   end
 end

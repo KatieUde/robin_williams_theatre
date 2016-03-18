@@ -2,6 +2,7 @@ class CreateTicketPurchases < ActiveRecord::Migration
   def change
     create_table :ticket_purchases do |t|
       t.string :name
+      t.string :email
       t.boolean :age_confirm
       t.string :cc_number
       t.string :cc_cvc

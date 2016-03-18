@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160318201830) do
 
   create_table "ticket_purchases", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
     t.boolean  "age_confirm"
     t.string   "cc_number"
     t.string   "cc_cvc"
