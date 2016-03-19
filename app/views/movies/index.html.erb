@@ -2,7 +2,7 @@ Movies (Index Page)
 
 <section>
   <article>
-    <h2>Now Playing</th>
+    <h2>Now Playing</h2>
     <% @now_showing.each do |movie| %>
       <div class="movie-posters"><%= link_to (image_tag "#{movie.ombd_poster}"), movie_path(movie) %></div>
     <% end %>

@@ -4,12 +4,42 @@
 
 <div class="container">
   <!-- <h2><%= @movie.name %></h2> -->
+  <div>
     <% unless @movie_data["Title"] == nil || @movie_data["Title"] == "" %>
       <h2><%=@movie_data["Title"]%></h2>
     <% end %>
-      <div><%= image_tag "#{@movie.ombd_poster}" %></div><br>
-    <% unless @movie_data["Plot"] == nil || @movie_data["Plot"] == "" %>
-      <h4>Plot:</h4>
-      <p><%=@movie_data["Plot"]%></p>
+  </div>
+    <div id="main-movie">
+      <%= image_tag "#{@movie.ombd_poster}" %>
+      <button class=button></button>
+      <button></button>
+    </div>
+      <br>
+    <div class="movie-deets2">
+      <% unless @movie_data["Plot"] == nil || @movie_data["Plot"] == "" %>
+        <h4>Plot:</h4>
+        <p><%=@movie_data["Plot"]%></p>
+      <% end %>
+    </div>
+  <div class="movie-deets1">
+    <% unless @movie_data["Genre"] == nil || @movie_data["Genre"] == "" %>
+      <h5>Genre:</h5>
+      <p><%=@movie_data["Genre"]%></p>
     <% end %>
   </div>
+  <div class="movie-deets1">
+    <% unless @movie_data["Rated"] == nil || @movie_data["Rated"] == "" %>
+      <h5>Rated:</h5>
+      <p><%=@movie_data["Rated"]%></p>
+    <% end %>
+  </div>
+  <div class="movie-deets1">
+    <% unless @movie_data["Runtime"] == nil || @movie_data["Runtime"] == "" %>
+      <h5>Runtime:</h5>
+      <p><%=@movie_data["Runtime"]%></p>
+    <% end %>
+  </div>
+    <h5>Showtimes:</h5>
+  <div>
+  </div>
+</div>

@@ -4,4 +4,24 @@
 
 .movie-posters {
   display: inline-block;
+  padding: 1em;
+}
+
+.movie-deets2 {
+  display: block;
+}
+
+.movie-deets1 {
+  display: block;
+}
+
+#main-movie {
+  float: left;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 2em;
+}
+
+#movie-list {
+  padding-left: 15em;
 }
