@@ -3,12 +3,23 @@ class ViewingsController < ApplicationController
     @viewings = Viewing.all
   end
 
-  def create
-    @viewing = Viewing.new
-  end
-
   def new
     @viewing = Viewing.new
+    @viewings = Viewing.all
+  end
+
+  def create
+    @viewing = Viewing.new
+
+    respond_to do |format|
+      if @viewing.save
+        format.html { redirect to @viewing, notice: "New viewing was successfully added." }
+        format.json { render :show, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @viewing.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -21,6 +32,12 @@ class ViewingsController < ApplicationController
   end
 
   def destroy
+    @viewing = Viewing.find(params[:id])
     @viewing.destroy
+    respond_to do |format|
+      format.html { redirect to movies_url, notice: "This viewing has been successfully removed." }
+      format.json { head :no_content }
+    end
   end
+
 end

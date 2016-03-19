@@ -38,6 +38,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.name
     @movie.ombd_id
+    @movie.youtube
     @movie_data = HTTParty.get "http://www.omdbapi.com/?i=#{@movie.ombd_id}&plot=full&r=json"
   end
 
@@ -47,11 +48,15 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    # redirect_to , notice: 'Movie has been removed from listing.'
+    respond_to do |format|
+      format.html { redirect to movies_url, notice: "This movie was successfully removed." }
+      format.json { head :no_content }
+    end
+
   end
 
 private
   def movie_params
-    params.require(:movie).permit(:id, :name, :ombd_id, :ombd_poster)
+    params.require(:movie).permit(:name, :ombd_id, :ombd_poster)
   end
 end

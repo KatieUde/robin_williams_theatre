@@ -1,5 +1,5 @@
 <div>
-  <h4>Showtime & Movie Scheduling</h4>
+  <h4>Edit Movies Playing</h4>
 </div>
   <br>
 <div>
@@ -8,7 +8,7 @@
     <div class="alert alert-warning alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h3>
-        <%= pluralize(@movie.errors.count, "errro") %> prohibited this movie from being saved:
+        <%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:
       </h3>
       <ul>
         <% @movie.errors.full_messages.each do |msg| %>
