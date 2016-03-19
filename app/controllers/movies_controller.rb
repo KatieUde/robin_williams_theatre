@@ -19,10 +19,15 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    if @movie.save
-      redirect_to @movie
-    else
-      render :new
+
+    respond_to do |format|
+      if @movie.save
+        format.html { redirect to @movie, notice: "New movie was successfully added." }
+        format.json { render :show, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
     end
   end
 
