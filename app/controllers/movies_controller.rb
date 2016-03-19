@@ -2,6 +2,14 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+
+    @now_showing = @movies.select do |movie|
+      movie.playing_now == true
+    end
+
+    @coming_soon = @movies.select do |movie|
+      movie.upcoming == true
+    end
   end
 
   def new
@@ -28,11 +36,12 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
     @movie.destroy
+    # redirect_to , notice: 'Movie has been removed from listing.'
   end
 
   def movie_params
     params.require(:movie).permit(:name, :ombd_id, :ombd_poster)
   end
-
 end
