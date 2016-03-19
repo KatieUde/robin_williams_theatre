@@ -1,2 +1,13 @@
 <h1>Movies#index</h1>
 <p>Find me in app/views/movies/index.html.erb</p>
+
+<table>
+  <tr>
+    <th>Movie Title</th>
+  </tr>
+    <% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.name %></td>
+  </tr>
+  <% end %>
+</table>

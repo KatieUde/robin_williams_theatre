@@ -4,12 +4,18 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
-  def create
-    @movie = Movie.new
-  end
-
   def new
     @movie = Movie.new
+    @movies = Movie.all
+  end
+
+  def create
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to @movie
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,4 +30,9 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
   end
+
+  def movie_params
+    params.require(:movie).permit(:name, :ombd_id, :ombd_poster)
+  end
+
 end
