@@ -24,7 +24,7 @@
     <div class="form-group">
       <%= f.label :auditorium, class: "col-sm-2 control-label" %>
         <div class="col-sm-5">
-          <select class="form-control" '<%= f.text_field :auditorium %>'>
+          <select class="form-control" '<%= f.text_field :viewing_room %>'>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -38,7 +38,9 @@
         <div class="col-sm-5">
           <select class="form-control" '<%= f.text_field :movie %>'>
            <% @movies.each do |movie| %>
+           <% if movie.playing_now == true %>
             <option><%= movie.name %></option>
+              <% end %>
             <% end %>
           </select>
       </div>
@@ -56,5 +58,3 @@
     </div>
   <% end %>
 </div>
-
-<br>

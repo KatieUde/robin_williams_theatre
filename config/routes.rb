@@ -1,20 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'viewing_rooms/index'
-
-  get 'viewing_rooms/show'
-
-  get 'viewing_rooms/new'
-
-  get 'viewing_rooms/edit'
-
-  get 'viewing_rooms/create'
-
-  get 'viewing_rooms/update'
-
-  get 'viewing_rooms/destroy'
-
-  resources :ticket_details, :viewings, :ticket_purchases, :auditoriums, :movies
+  resources :ticket_details, :viewings, :ticket_purchases, :viewing_rooms, :movies
 
   root to: "movies#index"
 
@@ -39,20 +25,6 @@ Rails.application.routes.draw do
   # get 'ticket_purchases/index'
   #
   # get 'ticket_purchases/show'
-
-  # get 'auditoriums/index'
-  #
-  # get 'auditoriums/create'
-  #
-  # get 'auditoriums/new'
-  #
-  # get 'auditoriums/edit'
-  #
-  # get 'auditoriums/show'
-  #
-  # get 'auditoriums/update'
-  #
-  # get 'auditoriums/destroy'
   #
   # get 'movies/index'
   #
