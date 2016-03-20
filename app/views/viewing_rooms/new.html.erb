@@ -37,6 +37,27 @@
     </div>
   <% end %>
 
-
+  <div class="col-md-7" id="">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th class="table_head">Screening Room</th>
+          <th class="table_head">Seating Capacity</th>
+          <th class="table_head">Update</th>
+          <th class="table_head">Remove</th>
+          </tr>
+            <% @viewing_rooms.each do |viewing_room| %>
+          <tr>
+            <td class="table_body">Auditorium <%= viewing_room.room_number %></td>
+            <td class="table_body"><%= viewing_room.seat_max%></td>
+            <td class="table_body">
+              <a class="btn-sm btn-default" href='/viewing_rooms/<%= viewing_room.id %>/edit' role="button">Update</a>
+            </td>
+            <td class="table_body">
+              <a class="btn-sm btn-default" href='/viewing_rooms/<%= viewing_room.id %>/destroy' role="button">Remove</a>
+            </td>
+        <% end %>
+      </table>
+    </div>
 
   </div>

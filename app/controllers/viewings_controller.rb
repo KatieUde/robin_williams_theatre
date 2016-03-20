@@ -7,6 +7,7 @@ class ViewingsController < ApplicationController
     @movies = Movie.all
     @viewing = Viewing.new
     @viewings = Viewing.all
+    @viewing_rooms = ViewingRoom.all
   end
 
   def create

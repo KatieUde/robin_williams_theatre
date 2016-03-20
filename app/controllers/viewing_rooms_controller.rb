@@ -4,11 +4,14 @@ class ViewingRoomsController < ApplicationController
   end
 
   def show
+    @viewing_room = ViewingRoom.find(params[:id])
+    @viewing_room.room_number
+    @viewing_room.seat_max
   end
 
   def new
-    @viewing_room = ViewingRoom.new
     @viewing_rooms = ViewingRoom.all
+    @viewing_room = ViewingRoom.new
   end
 
   def edit
