@@ -4,6 +4,7 @@ class ViewingsController < ApplicationController
   end
 
   def new
+    @movies = Movie.all
     @viewing = Viewing.new
     @viewings = Viewing.all
   end
