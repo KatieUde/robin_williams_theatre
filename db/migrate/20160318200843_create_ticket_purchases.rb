@@ -9,6 +9,7 @@ class CreateTicketPurchases < ActiveRecord::Migration
       t.string :cc_exp_mth
       t.string :cc_exp_yr
       t.string :final_cost
+      t.string :zip_code
       t.integer :movie_id
       t.integer :viewing_id
 
