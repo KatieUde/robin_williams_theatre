@@ -14,7 +14,7 @@ class ViewingsController < ApplicationController
 
     respond_to do |format|
       if @viewing.save
-        format.html { redirect to @viewing, notice: "New viewing was successfully added." }
+        format.html { redirect_to @viewing, notice: "New viewing was successfully added." }
         format.json { render :show, status: :created }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class ViewingsController < ApplicationController
     @viewing = Viewing.find(params[:id])
     @viewing.destroy
     respond_to do |format|
-      format.html { redirect to viewings_url, notice: "This viewing has been successfully removed." }
+      format.html { redirect_to viewings_url, notice: "This viewing has been successfully removed." }
       format.json { head :no_content }
     end
   end

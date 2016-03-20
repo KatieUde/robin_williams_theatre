@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect to @movie, notice: "New movie was successfully added." }
+        format.html { redirect_to @movie, notice: "New movie was successfully added." }
         format.json { render :show, status: :created }
       else
         format.html { render :new }
@@ -49,13 +49,13 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
     respond_to do |format|
-      format.html { redirect to movies_url, notice: "This movie was successfully removed." }
+      format.html { redirect_to movies_url, notice: "This movie was successfully removed." }
       format.json { head :no_content }
     end
   end
 
 private
   def movie_params
-    params.require(:movie).permit(:name, :ombd_id, :ombd_poster)
+    params.require(:movie).permit(:name, :ombd_id, :ombd_poster, :youtube)
   end
 end

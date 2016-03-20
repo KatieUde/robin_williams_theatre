@@ -10,7 +10,7 @@ Movies (Index Page)
 
 
     <article>
-      <h2>Coming Soon</th>
+      <h2>Coming Soon</h2>
       <% @coming_soon.each do |movie| %>
       <%= link_to (image_tag "#{movie.ombd_poster}"), movie_path(movie) %>
     <% end %>
