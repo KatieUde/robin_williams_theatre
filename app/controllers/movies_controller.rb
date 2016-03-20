@@ -52,7 +52,6 @@ class MoviesController < ApplicationController
       format.html { redirect to movies_url, notice: "This movie was successfully removed." }
       format.json { head :no_content }
     end
-
   end
 
 private

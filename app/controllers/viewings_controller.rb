@@ -10,7 +10,7 @@ class ViewingsController < ApplicationController
   end
 
   def create
-    @viewing = Viewing.new
+    @viewing = Viewing.new(viewing_params)
 
     respond_to do |format|
       if @viewing.save
@@ -36,9 +36,14 @@ class ViewingsController < ApplicationController
     @viewing = Viewing.find(params[:id])
     @viewing.destroy
     respond_to do |format|
-      format.html { redirect to movies_url, notice: "This viewing has been successfully removed." }
+      format.html { redirect to viewings_url, notice: "This viewing has been successfully removed." }
       format.json { head :no_content }
     end
+  end
+
+private
+  def viewing_params
+    params.require(:viewing).permit()
   end
 
 end

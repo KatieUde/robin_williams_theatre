@@ -4,6 +4,7 @@ class CreateMovies < ActiveRecord::Migration
       t.text :name
       t.string :ombd_id
       t.string :ombd_poster
+      t.string :youtube
       t.boolean :playing_now
       t.boolean :upcoming
 

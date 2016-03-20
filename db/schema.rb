@@ -11,22 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318201830) do
+ActiveRecord::Schema.define(version: 20160320164934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "auditoria", force: :cascade do |t|
-    t.integer  "room_number"
-    t.integer  "seat_max"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "movies", force: :cascade do |t|
     t.text     "name"
     t.string   "ombd_id"
     t.string   "ombd_poster"
+    t.string   "youtube"
     t.boolean  "playing_now"
     t.boolean  "upcoming"
     t.datetime "created_at",  null: false
@@ -51,6 +45,13 @@ ActiveRecord::Schema.define(version: 20160318201830) do
     t.string   "final_cost"
     t.integer  "movie_id"
     t.integer  "viewing_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "viewing_rooms", force: :cascade do |t|
+    t.integer  "room_number"
+    t.integer  "seat_max"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

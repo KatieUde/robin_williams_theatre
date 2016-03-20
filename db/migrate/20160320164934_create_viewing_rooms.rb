@@ -1,6 +1,6 @@
-class CreateAuditoria < ActiveRecord::Migration
+class CreateViewingRooms < ActiveRecord::Migration
   def change
-    create_table :auditoria do |t|
+    create_table :viewing_rooms do |t|
       t.integer :room_number
       t.integer :seat_max
 
