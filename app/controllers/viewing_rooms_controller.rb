@@ -12,6 +12,8 @@ class ViewingRoomsController < ApplicationController
   def new
     @viewing_rooms = ViewingRoom.all
     @viewing_room = ViewingRoom.new
+    @ticket_details = TicketDetail.all
+    @ticket_detail = TicketDetail.new
   end
 
   def edit
@@ -29,6 +31,19 @@ class ViewingRoomsController < ApplicationController
         format.json { render json: @viewing_room.errors, status: :unprocessable_entity }
       end
     end
+
+    @ticket_detail = TicketDetail.new(ticket_detail_params)
+
+    respond_to do |format|
+      if @ticket_detail.save
+        format.html { redirect_to @ticket_detail, notice: "New ticket type was added." }
+        format.json { render :show, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @ticket_detail.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def update
@@ -46,6 +61,10 @@ class ViewingRoomsController < ApplicationController
 private
   def viewing_room_params
     params.require(:viewing_room).permit(:room_number, :seat_max)
+  end
+
+  def ticket_detail_params
+    params.require(:ticket_detail).permit(:ticket_style, :price)
   end
 
 end

@@ -10,32 +10,34 @@ class TicketPurchase < ActiveRecord::Base
   VALID_ZIP_CODE_REGEX = /(^\d{5}$)/
 
   validates_presence_of :name, :cc_exp_mth, :cc_exp_yr
+  validate :age_confirm
 
   validates :email, presence: true,
                     on: :update,
                     length: { maximum: 50 },
-                    format: { with: VALID_EMAIL_REGEX },
-                              message: "Something about your email doesn't look right, please verify formatting is proper."
+                    format: { with: VALID_EMAIL_REGEX,
+                    message: "Something about your email doesn't look right, please verify formatting is proper." }
 
   validates :cc_number, presence: true,
                         on: :update,
                         length: { maximum: 16 },
-                        format: { with: VALID_CREDIT_CARD_REGEX },
-                        message: "Cannot process credit card number. Please check the length and make sure only numerical values have been entered."
+                        format: { with: VALID_CREDIT_CARD_REGEX,
+                        message: "Cannot process credit card number. Please check the length and make sure only numerical values have been entered." }
 
   validates :cc_cvc, presence: true,
                       on: :update,
                       length: { maximum: 4 },
-                      format: { with: VALID_CVC_REGEX },
-                      message: "CVC should only be three digits unless AMEX, which has four. Please make sure there are no extra numbers or letters."
+                      format: { with: VALID_CVC_REGEX,
+                      message: "CVC should only be three digits unless AMEX, which has four. Please make sure there are no extra numbers or letters." }
 
   validates :zip_code, presence: true,
                         on: :update,
                         length: { maximum: 5 },
-                        format: { with: VALID_ZIP_CODE_REGEX },
-                        message: "Zip codes should be five digits. No need to include the four USPS digits."
+                        format: { with: VALID_ZIP_CODE_REGEX,
+                        message: "Zip codes should be five digits. No need to include the four USPS digits." }
 
-  validates :age_confirm
+  def age_confirm
+  end
 
   private
 

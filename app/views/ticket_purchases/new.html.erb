@@ -1,0 +1,51 @@
+<div>
+  <h4>Purchase Movie Tickets</h4>
+</div>
+  <br>
+<div>
+  <%= form_for(@movie, html: { class: "form-horizontal", role: "form" }) do |f| %>
+    <% if @movie.errors.any? %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3>
+        <%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:
+      </h3>
+      <ul>
+        <% @movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-group">
+      <%= f.label :movie_title, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :movie_number, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :ombd_id, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :movie_poster, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :ombd_poster, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :official_trailer, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :youtube, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= f.submit class: "btn-sm btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

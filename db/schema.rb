@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320211014) do
+ActiveRecord::Schema.define(version: 20160320225411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20160320211014) do
   end
 
   create_table "ticket_details", force: :cascade do |t|
-    t.string   "type"
-    t.decimal  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "price"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "ticket_style"
   end
 
   create_table "ticket_purchases", force: :cascade do |t|
