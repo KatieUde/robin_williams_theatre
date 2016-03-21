@@ -39,6 +39,7 @@ class TicketPurchase < ActiveRecord::Base
   def purchase_age_confirm
     if self.movie.rating == "R" && self.age_confirm == false
       errors.add(:purchase_age_confirm, "This movie is Rated R. You must be 17 to buy a ticket for it")
+    end
   end
 
   private

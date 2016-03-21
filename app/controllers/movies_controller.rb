@@ -39,12 +39,9 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @movie.viewings = Viewing.all
-    @viewings = Viewing.all
-    # @movie.viewings = Viewing.find(params[:id])
     @movie.name
     @movie.ombd_id
     @movie.youtube
-    # @viewing.view_time
     @movie_data = HTTParty.get "http://www.omdbapi.com/?i=#{@movie.ombd_id}&plot=full&r=json"
   end
 

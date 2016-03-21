@@ -28,9 +28,8 @@ class ViewingsController < ApplicationController
   end
 
   def show
-    @viewing = Viewings.all
     @viewing = Viewing.find(params[:id])
-    @movie = Movie.find(params[:movie_id])
+    # @movie = Movie.find(params[:movie_id])
   end
 
   def update
@@ -47,7 +46,7 @@ class ViewingsController < ApplicationController
 
 private
   def viewing_params
-    params.require(:viewing).permit()
+    params.require(:viewing).permit(:movie_id, :viewing_room_id, :seats_open, :view_time, :view_date)
   end
 
 end
