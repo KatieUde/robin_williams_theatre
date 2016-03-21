@@ -24,25 +24,29 @@
     <div class="form-group">
       <%= f.label :auditorium, class: "col-sm-2 control-label" %>
         <div class="col-sm-5">
-          <select class="form-control" '<%= f.text_field :viewing_room %>'>
+          <select class= "form-control"
+            <%= collection_select(:viewing, :viewing_room_id, ViewingRoom.all, :id, :room_number, prompt: true) %>
+          </select>
+          <!-- <select class="form-control" '<%= f.text_field :viewing_room %>'>
             <% @viewing_rooms.each do |viewing_room| %>
             <option><%= viewing_room.room_number %></option>
               <% end %>
-          </select>
+          </select> -->
       </div>
     </div>
     <div class="form-group">
       <%= f.label :movie, class: "col-sm-2 control-label" %>
         <div class="col-sm-5">
-          <!-- <select class="form-control" '<%= f.text_field :movie %>'> -->
           <select class= "form-control"
             <%= collection_select(:viewing, :movie_id, Movie.all, :id, :name, prompt: true) %>
+          </select>
+          <!-- <select class="form-control" '<%= f.text_field :movie %>'> -->
            <!-- <% @movies.each do |movie| %>
            <% if movie.playing_now == true %>
             <option><%= movie.name %></option>
               <% end %>
             <% end %> -->
-          ></select>
+        <!-- </select> -->
       </div>
     </div>
     <div class="form-group">
@@ -50,7 +54,7 @@
       <div class="col-sm-5">
         <!-- <%= f.text_field :seats_open, class: "form-control" %> -->
         <label class="radio-inline">
-            <input type="radio" name="seats_open" id="inlineRadio1" value="true"> Yes
+          <input type="radio" name="seats_open" id="inlineRadio1" value="true"> Yes
         </label>
         <label class="radio-inline">
           <input type="radio" name="seats_open" id="inlineRadio2" value="false"> No
@@ -60,13 +64,13 @@
     <div class="form-group">
       <%= f.label :movie_time, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
-        <input type="time" class="form-control" name="view_time" placeholder="Time"></input>
+        <%= f.time_field :view_time, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
       <%= f.label :movie_date, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
-        <input type="date" class="form-control" name="view_date" placeholder="Date"></input>
+        <%= f.date_field :view_date, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
