@@ -28,6 +28,7 @@ class ViewingsController < ApplicationController
   end
 
   def show
+    @viewing = Viewings.all
   end
 
   def update

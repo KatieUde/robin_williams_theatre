@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320225411) do
+ActiveRecord::Schema.define(version: 20160321061513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160320225411) do
     t.boolean  "upcoming"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "rating"
   end
 
   create_table "ticket_details", force: :cascade do |t|
@@ -67,4 +68,7 @@ ActiveRecord::Schema.define(version: 20160320225411) do
     t.datetime "updated_at",    null: false
   end
 
+  add_foreign_key "ticket_purchases", "movies", name: "ticket_purchases_movie_id_fkey"
+  add_foreign_key "ticket_purchases", "viewings", name: "ticket_purchases_viewing_id_fkey"
+  add_foreign_key "viewings", "movies", name: "viewings_movie_id_fkey"
 end

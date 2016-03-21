@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
   def new
     @movie = Movie.new
     @movies = Movie.all
+    @viewings = Viewing.all
   end
 
   def create
@@ -32,12 +33,14 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   def show
     @movie = Movie.find(params[:id])
-    # @viewing.movies_id = @movie
-    # @viewings = Viewing.all
+    @movie.viewings = Viewing.all
+    @viewings = Viewing.all
+    # @movie.viewings = Viewing.find(params[:id])
     @movie.name
     @movie.ombd_id
     @movie.youtube
@@ -46,6 +49,8 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @movie = Movie.find(params[:id])
+    @movie.update_attributes(movie_params)
   end
 
   def destroy

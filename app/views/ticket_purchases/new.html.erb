@@ -3,15 +3,15 @@
 </div>
   <br>
 <div>
-  <%= form_for(@movie, html: { class: "form-horizontal", role: "form" }) do |f| %>
-    <% if @movie.errors.any? %>
+  <%= form_for(@ticket_purchase, html: { class: "form-horizontal", role: "form" }) do |f| %>
+    <% if @ticket_purchase.errors.any? %>
     <div class="alert alert-warning alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h3>
-        <%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:
+        <%= pluralize(@ticket_purchase.errors.count, "error") %> prohibited this movie from being saved:
       </h3>
       <ul>
-        <% @movie.errors.full_messages.each do |msg| %>
+        <% @ticket_purchase.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
       </ul>
@@ -19,27 +19,51 @@
   <% end %>
 
     <div class="form-group">
-      <%= f.label :movie_title, class: "col-sm-2 control-label" %>
+      <%= f.label :movie, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
-        <%= f.text_field :name, class: "form-control" %>
+        <select class="form-control" '<%= f.text_field :movie_id %>'>
+         <% @movies.each do |movie| %>
+         <% if movie.playing_now == true %>
+          <option><%= movie.name %></option>
+            <% end %>
+          <% end %>
+        </select>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :movie_number, class: "col-sm-2 control-label" %>
+      <%= f.label :email, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
-        <%= f.text_field :ombd_id, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :movie_poster, class: "col-sm-2 control-label" %>
+      <%= f.label :age, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
-        <%= f.text_field :ombd_poster, class: "form-control" %>
+        <%= f.text_field :age_confirm, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :official_trailer, class: "col-sm-2 control-label" %>
+      <%= f.label :credit_card_number, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
-        <%= f.text_field :youtube, class: "form-control" %>
+        <%= f.text_field :cc_number, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :cvc, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :cc_cvc, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :exp_date, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.month_field :cc_exp_mth, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :zip_code, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.number_field :zip_code, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
