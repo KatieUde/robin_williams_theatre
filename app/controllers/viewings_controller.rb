@@ -29,6 +29,8 @@ class ViewingsController < ApplicationController
 
   def show
     @viewing = Viewings.all
+    @viewing = Viewing.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
   end
 
   def update

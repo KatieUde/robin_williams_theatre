@@ -9,6 +9,7 @@ class TicketDetailsController < ApplicationController
   end
 
   def new
+    @ticket_details = TicketDetail.all
     @ticket_detail = TicketDetail.new
   end
 
@@ -17,7 +18,7 @@ class TicketDetailsController < ApplicationController
 
     respond_to do |format|
       if @ticket_detail.save
-        format.html { redirect_to @ticket_detail, notice: "New ticket type was added." }
+        format.html { redirect_to new_ticket_detail_path, notice: "New ticket type was added." }
         format.json { render :show, status: :created }
       else
         format.html { render :new }

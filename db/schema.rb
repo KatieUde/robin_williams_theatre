@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321061513) do
+ActiveRecord::Schema.define(version: 20160321145110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,14 +41,13 @@ ActiveRecord::Schema.define(version: 20160321061513) do
     t.boolean  "age_confirm"
     t.string   "cc_number"
     t.string   "cc_cvc"
-    t.string   "cc_exp_mth"
-    t.string   "cc_exp_yr"
+    t.string   "cc_exp"
     t.string   "final_cost"
+    t.string   "zip_code"
     t.integer  "movie_id"
     t.integer  "viewing_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "zip_code"
   end
 
   create_table "viewing_rooms", force: :cascade do |t|
@@ -60,15 +59,12 @@ ActiveRecord::Schema.define(version: 20160321061513) do
 
   create_table "viewings", force: :cascade do |t|
     t.integer  "movie_id"
-    t.integer  "auditorium_id"
     t.boolean  "seats_open"
-    t.datetime "view_time"
+    t.string   "view_time"
     t.date     "view_date"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "viewing_room_id"
   end
 
-  add_foreign_key "ticket_purchases", "movies", name: "ticket_purchases_movie_id_fkey"
-  add_foreign_key "ticket_purchases", "viewings", name: "ticket_purchases_viewing_id_fkey"
-  add_foreign_key "viewings", "movies", name: "viewings_movie_id_fkey"
 end

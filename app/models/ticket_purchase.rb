@@ -36,7 +36,9 @@ class TicketPurchase < ActiveRecord::Base
                         format: { with: VALID_ZIP_CODE_REGEX,
                         message: "Zip codes should be five digits. No need to include the four USPS digits." }
 
-  def age_confirm
+  def purchase_age_confirm
+    if self.movie.rating == "R" && self.age_confirm == false
+      errors.add(:purchase_age_confirm, "This movie is Rated R. You must be 17 to buy a ticket for it")
   end
 
   private

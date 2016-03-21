@@ -6,8 +6,7 @@ class CreateTicketPurchases < ActiveRecord::Migration
       t.boolean :age_confirm
       t.string :cc_number
       t.string :cc_cvc
-      t.string :cc_exp_mth
-      t.string :cc_exp_yr
+      t.string :cc_exp
       t.string :final_cost
       t.string :zip_code
       t.integer :movie_id

@@ -1,0 +1,76 @@
+<div>
+  <h3>Ticket Set-up</h3>
+</div>
+  <br>
+
+<!-------------------------------------->
+<!-- TICKET TYPE FORM ERROR MESSAGING -->
+
+<div>
+  <%= form_for(@ticket_detail, html: {class: "form-horizontal", role: "form"}) do |f| %>
+    <% if @ticket_detail.errors.any? %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3>
+        <%= pluralize(@ticket_detail.errors.count, "error") %> prohibited this ticket type from being saved:
+      </h3>
+      <ul>
+        <% @ticket_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-------------------------------------->
+  <!-- FORM FOR NEW TICKET CREATION ------>
+
+  <div class="form-group">
+    <%= f.label :ticket_type, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :ticket_style, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ticket_price, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <!-- <%= f.text_field :price, class: "form-control" %> -->
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="number" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <span class="input-group-addon">.00</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <%= f.submit class: "btn-sm btn-primary" %>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<!-------------------------------------->
+
+<div class="col-md-7" id="ticket-type-list">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="table_head">Ticket Type</th>
+        <th class="table_head">Ticket Price</th>
+        <th class="table_head">Update</th>
+        <th class="table_head">Remove</th>
+        </tr>
+          <% @ticket_details.each do |ticket_detail| %>
+        <tr>
+          <td class="table_body"><%= ticket_detail.ticket_style %></td>
+          <td class="table_body">$<%= ticket_detail.price%></td>
+          <td class="table_body">
+            <a class="btn-sm btn-default" href='/viewing_rooms/<%= ticket_detail.id %>/edit' role="button">Update</a>
+          </td>
+          <td class="table_body">
+            <a class="btn-sm btn-default" href='/viewing_rooms/<%= ticket_detail.id %>/destroy' role="button">Remove</a>
+          </td>
+      <% end %>
+    </table>
+  </div>
