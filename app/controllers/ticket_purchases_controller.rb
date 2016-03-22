@@ -30,6 +30,6 @@ class TicketPurchasesController < ApplicationController
 private
 
   def ticket_purchase_params
-    params.require(:ticket_purchase).permit(:movie_name, :name, :email, :age_confirm, :cc_number, :cc_cvc, :cc_exp_mth, :cc_exp_yr, :final_cost, :zip_code)
+    params.require(:ticket_purchase).permit(:name, :email, :age_confirm, :cc_number, :cc_cvc, :cc_exp, :final_cost, :zip_code, :movie_id, :viewing_id)
   end
 end

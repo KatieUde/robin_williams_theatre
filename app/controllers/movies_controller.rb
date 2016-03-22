@@ -39,6 +39,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    current_movie = @movie
     @movie.viewings = Viewing.all
     @movie.name
     @movie.ombd_id
