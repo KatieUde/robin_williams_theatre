@@ -1,0 +1,25 @@
+<h3>Thank you for your patronage!</h3>
+
+
+  <h4>Hi <%= @ticket_purchase.name %>! We hope you are excited for your upcoming viewing experience.</h4>
+
+    <p>You will have a ticket waiting for you at the designated "pick-up" section located to the right upon entering the theatre through the main doors. However, if for some reason there is an issue, this electronic receipt does qualify as proof of purchase.</p>
+
+      <h4>Your order information:</h4>
+
+      <p>
+        You purchased 1 Ticket to go see <%= @ticket_purchase.movie.name %>. Your confirmation number for this transaction is <%= @ticket_purchase.id %>
+      </p>
+
+      <p>
+        The total amount charged to your card is <%= number_to_currency(@ticket_purchase.final_cost) %>
+      </p>
+
+      <p>
+        In the words of Robin Williams, "Acting is different from stand-up. It gives you this ability to enter into another character, to create another person"
+      </p>
+
+      <p>
+        We hope you become enmeshed in the characters & enjoy the show!!
+        -
+      </p>

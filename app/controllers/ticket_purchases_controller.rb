@@ -18,13 +18,12 @@ class TicketPurchasesController < ApplicationController
     @ticket_purchase = TicketPurchase.new(ticket_purchase_params)
 
       if @ticket_purchase.save
-        redirect_to @ticket_purchase, notice: "New ticket was successfully purchased." }
-        TicketPurchaseMailer.send_receipt(@ticket_purchase, @ticket_purchase.email).deliver_now
+        redirect_to @ticket_purchase, notice: "New ticket was successfully purchased."
+        TicketPurchaseMailer.receipt(@ticket_purchase).deliver_now
       else
         render :new, errors: @ticket_purchase.errors
       end
     end
-  end
 
 private
 
