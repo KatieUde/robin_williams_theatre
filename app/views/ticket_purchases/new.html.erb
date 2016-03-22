@@ -22,15 +22,15 @@
       <%= f.label :movie, class: "col-sm-2 control-label" %>
         <div class="col-sm-5">
           <select class= "form-control"
-            <%= collection_select(:movie, :movie_id, Movie.all, :id, :name, prompt: true) %>
+            <%= collection_select(:movie, :id, Movie.all, :id, :name, prompt: true) %>
           </select>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :movie, class: "col-sm-2 control-label" %>
+        <%= f.label :showtimes, class: "col-sm-2 control-label" %>
           <div class="col-sm-5">
             <select class= "form-control"
-              <%= collection_select(:movie, :movie_id, Movie.all, :id, :name, prompt: true) %>
+              <%= collection_select(:viewing, :view_time, Viewing.all, :id, :view_time, prompt: true) %>
             </select>
           </div>
         </div>

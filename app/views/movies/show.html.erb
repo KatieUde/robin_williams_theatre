@@ -16,7 +16,7 @@
       <br>
       <% unless @movie.upcoming == true %>
        <!-- <%= link_to "Buy Tickets", new_ticket_purchase_path(:movie => @movie) %> -->
-      <div class="movie-button"><a class="btn btn-info" <%= link_to "Buy Tickets", new_ticket_purchase_path(:movie => @movie) %></a></div>
+      <div class="movie-button"><a class="btn btn-info" <%= link_to "Buy Tickets", new_ticket_purchase_path(:movie_id => @movie.id) %></a></div>
         <% end %>
     </div>
       <br>

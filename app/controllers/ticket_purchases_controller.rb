@@ -8,6 +8,7 @@ class TicketPurchasesController < ApplicationController
   end
 
   def new
+    @movie = Movie.find_by_id(params[:id])
     @movies = Movie.all
     @ticket_purchase = TicketPurchase.new
   end
