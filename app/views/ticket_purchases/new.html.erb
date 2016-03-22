@@ -22,7 +22,7 @@
       <%= f.label :movie, class: "col-sm-2 control-label" %>
         <div class="col-sm-5">
           <select class= "form-control"
-            <%= collection_select(:movie, :id, Movie.all, :id, :name, prompt: true) %>
+            <%= collection_select(:ticket_purchase, :movie_id, Movie.all, :id, :name, prompt: true) %>
           </select>
         </div>
       </div>
@@ -30,10 +30,18 @@
         <%= f.label :showtimes, class: "col-sm-2 control-label" %>
           <div class="col-sm-5">
             <select class= "form-control"
-              <%= collection_select(:viewing, :view_time, Viewing.all, :id, :view_time, prompt: true) %>
+              <%= collection_select(:ticket_purchase, :viewing_id, Viewing.all, :id, :view_time, prompt: true) %>
             </select>
           </div>
         </div>
+        <div class="form-group">
+          <%= f.label :ticket_type, class: "col-sm-2 control-label" %>
+            <div class="col-sm-5">
+              <select class= "form-control"
+                <%= collection_select(:ticket_purchase, :final_cost, TicketDetail.all, :price, :ticket_style, prompt: true) %>
+              </select>
+            </div>
+          </div>
       <div class="form-group">
         <%= f.label :name, class: "col-sm-2 control-label" %>
         <div class="col-sm-5">
@@ -48,15 +56,10 @@
     </div>
     <div class="form-group">
       <%= f.label :over_17, class: "col-sm-2 control-label" %>
-      <div class="col-sm-5">
-        <label class="radio-inline">
-            <input type="radio" name="age_confirm" id="inlineRadio1" value="true"> Yes
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="age_confirm" id="inlineRadio2" value="false"> No
-        </label>
+        <div class="col-sm-5">
+          <select class="form-control" <%= f.select :age_confirm, ['Please Select', 'True', 'False'] %></select>
+        </div>
       </div>
-    </div>
     <div class="form-group">
       <%= f.label :credit_card_number, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">

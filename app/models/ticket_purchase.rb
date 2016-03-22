@@ -9,7 +9,7 @@ class TicketPurchase < ActiveRecord::Base
   VALID_CVC_REGEX = /(^\d{3,4}$)/
   VALID_ZIP_CODE_REGEX = /(^\d{5}$)/
 
-  validates_presence_of :name, :cc_exp_mth, :cc_exp_yr
+  validates_presence_of :name, :cc_exp
   validate :age_confirm
 
   validates :email, presence: true,
