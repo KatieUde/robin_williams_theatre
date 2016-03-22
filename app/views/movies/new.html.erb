@@ -72,12 +72,12 @@
         <tr>
           <td class="table_body"><%= movie.name %></td>
           <td class="table_body"><%= movie.rating%></td>
-          <td class="table_body">
-            <a class="btn-sm btn-default" href='/movies/<%= movie.id %>/edit' role="button">Update</a>
-          </td>
-          <td class="table_body">
-            <a class="btn-sm btn-default" href='/movies/<%= movie.id %>/destroy' role="button">Remove</a>
-          </td>
+            <td class="table_body">
+              <%= link_to 'Edit', edit_movie_path(movie) %>
+            </td>
+            <td class="table_body">
+              <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Do you really want to remove this movie?' } %>
+            </td>
       <% end %>
     </table>
   </div>

@@ -1,2 +1,59 @@
-<h1>Movies#edit</h1>
-<p>Find me in app/views/movies/edit.html.erb</p>
+<div id="update_movie">
+  <h3>Update Details for <%= @movie.name %></h3>
+
+<br>
+<br>
+
+  <form class="form-horizontal" action="update" method="PUT">
+    <div class="form-group">
+      <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+    </div>
+  <div class="form-group">
+    <label for="movie_name" class="col-sm-2 control-label">Movie title</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="movie_name" value="<%= @movie.name %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="movie_rating" class="col-sm-2 control-label">Rated</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="movie_rating" value="<%= @movie.rating %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="movie_number" class="col-sm-2 control-label">Movie number</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="movie_ombd_id" value="<%= @movie.ombd_id %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="movie_poster" class="col-sm-2 control-label">Movie poster</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="movie_ombd_poster" value="<%= @movie.ombd_poster %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="movie_youtube" class="col-sm-2 control-label">Official Trailer</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="movie_youtube" value="<%= @movie.youtube %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="movie_playing_now" class="col-sm-2 control-label">Now Playing</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="movie_playing_now" value="<%= @movie.playing_now %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="movie_upcoming" class="col-sm-2 control-label">Now Playing</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" name="movie_upcoming" value="<%= @movie.upcoming %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+    <button class="btn btn-default" type="submit">Update Movie</button>
+  </div>
+</div>
+  </form>
+</div>

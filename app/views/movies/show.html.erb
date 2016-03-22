@@ -44,7 +44,7 @@
     <% end %>
   </div>
     <h5>Showtimes:</h5>
-    <p><%= @movie.id %></p>
-  <div>
-  </div>
+    <% @movie.viewings.each do |movie| %>
+    <p><%= '#{@viewing.view_time}' %></p>
+    <% end %>
 </div>

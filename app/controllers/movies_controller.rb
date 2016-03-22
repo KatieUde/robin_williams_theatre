@@ -34,6 +34,7 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
+    # @movie.update(movie_params)
   end
 
   def show
@@ -47,7 +48,17 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find(params[:id])
-    @movie.update_attributes(movie_params)
+    @movie.update(movie_params)
+
+    respond_to do |format|
+      if @movie.save
+        format.html { redirect_to new_movie_path, notice: "New movie was successfully added." }
+        format.json { render :show, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -61,6 +72,6 @@ class MoviesController < ApplicationController
 
 private
   def movie_params
-    params.require(:movie).permit(:name, :rating, :ombd_id, :ombd_poster, :youtube)
+    params.require(:movie).permit(:id, :name, :rating, :ombd_id, :ombd_poster, :youtube, :playing_now, :upcoming)
   end
 end
