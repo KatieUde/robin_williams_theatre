@@ -1,0 +1,2 @@
+class TicketPurchaseMailer < ApplicationMailer
+end

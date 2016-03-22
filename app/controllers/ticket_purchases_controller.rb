@@ -17,13 +17,11 @@ class TicketPurchasesController < ApplicationController
     @movies = Movie.all
     @ticket_purchase = TicketPurchase.new(ticket_purchase_params)
 
-    respond_to do |format|
       if @ticket_purchase.save
-        format.html { redirect_to @ticket_purchase, notice: "New ticket was successfully purchased." }
-        format.json { render :show, status: :created }
+        redirect_to @ticket_purchase, notice: "New ticket was successfully purchased." }
+        TicketPurchaseMailer.send_receipt(@ticket_purchase, @ticket_purchase.email).deliver_now
       else
-        format.html { render :new }
-        format.json { render json: @ticket_purchase.errors, status: :unprocessable_entity }
+        render :new, errors: @ticket_purchase.errors
       end
     end
   end
