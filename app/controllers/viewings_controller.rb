@@ -4,10 +4,10 @@ class ViewingsController < ApplicationController
   end
 
   def new
-    @movies = Movie.all
+    # @movies = Movie.all
     @viewing = Viewing.new
     @viewings = Viewing.all
-    @viewing_rooms = ViewingRoom.all
+    # @viewing_rooms = ViewingRoom.all
   end
 
   def create
@@ -15,7 +15,7 @@ class ViewingsController < ApplicationController
 
     respond_to do |format|
       if @viewing.save
-        format.html { redirect_to @viewing, notice: "New viewing was successfully added." }
+        format.html { redirect_to new_viewing_path, notice: "New viewing was successfully added." }
         format.json { render :show, status: :created }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ViewingsController < ApplicationController
 
 private
   def viewing_params
-    params.require(:viewing).permit(:movie_id, :viewing_room_id, :seats_open, :view_time, :view_date)
+    params.require(:viewing).permit(:movie_id, :viewing_room_id, :view_time, :view_date)
   end
 
 end

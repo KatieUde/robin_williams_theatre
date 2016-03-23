@@ -2,7 +2,7 @@
 <p>Find me in app/views/viewings/new.html.erb</p> -->
 
 <div>
-  <h4>Viewings Set-up</h4>
+  <h3>Viewings Set-up</h3>
 </div>
   <br>
 <div>
@@ -27,11 +27,6 @@
           <select class= "form-control"
             <%= collection_select(:viewing, :viewing_room_id, ViewingRoom.all, :id, :room_number, prompt: true) %>
           </select>
-          <!-- <select class="form-control" '<%= f.text_field :viewing_room %>'>
-            <% @viewing_rooms.each do |viewing_room| %>
-            <option><%= viewing_room.room_number %></option>
-              <% end %>
-          </select> -->
       </div>
     </div>
     <div class="form-group">
@@ -40,13 +35,6 @@
           <select class= "form-control"
             <%= collection_select(:viewing, :movie_id, Movie.all, :id, :name, prompt: true) %>
           </select>
-          <!-- <select class="form-control" '<%= f.text_field :movie %>'> -->
-           <!-- <% @movies.each do |movie| %>
-           <% if movie.playing_now == true %>
-            <option><%= movie.name %></option>
-              <% end %>
-            <% end %> -->
-        <!-- </select> -->
       </div>
     </div>
     <div class="form-group">
@@ -68,3 +56,30 @@
     </div>
   <% end %>
 </div>
+
+<div class="col-md-7" id="ticket-type-list">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="table_head">Auditorium</th>
+        <th class="table_head">Movie</th>
+        <th class="table_head">Movie time</th>
+        <th class="table_head">Movie date</th>
+        <th class="table_head">Update</th>
+        <th class="table_head">Remove</th>
+        </tr>
+          <% @viewings.each do |viewing| %>
+        <tr>
+          <td class="table_body"><%= viewing.viewing_room.room_number %></td>
+          <td class="table_body"><%= viewing.movie.name%></td>
+          <td class="table_body"><%= viewing.view_time %></td>
+          <td class="table_body"><%= viewing.view_date%></td>
+          <td class="table_body">
+            <%= link_to 'Edit', edit_viewing_path(viewing) %>
+          </td>
+          <td class="table_body">
+            <%= link_to 'Destroy', viewing, method: :delete, data: { confirm: 'Do you really want to remove this movie?' } %>
+          </td>
+      <% end %>
+    </table>
+  </div>

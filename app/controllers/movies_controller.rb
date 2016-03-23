@@ -3,11 +3,11 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     @now_showing = @movies.select do |movie|
-      movie.playing_now == true
+      movie.playing_now
     end
 
     @coming_soon = @movies.select do |movie|
-      movie.upcoming == true
+      # movie.upcoming == yes_to.boolean
     end
 
   end
