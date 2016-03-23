@@ -30,10 +30,9 @@
   <div class="form-group">
     <%= f.label :ticket_price, class: "col-sm-2 control-label" %>
     <div class="col-sm-5">
-      <!-- <%= f.text_field :price, class: "form-control" %> -->
       <div class="input-group">
         <span class="input-group-addon">$</span>
-        <input type="number.to_i" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <input type="text" name="ticket_cost" value="ticket_cost" class="form-control" aria-label="Amount (to the nearest dollar)">
         <span class="input-group-addon">.00</span>
       </div>
     </div>

@@ -45,7 +45,10 @@
     <% end %>
   </div>
     <h5>Showtimes:</h5>
-    <% @movie.viewings.each do |viewing| %>
-    <p><%= viewing.view_time unless viewing.view_time.nil? %></p>
-    <% end %>
+      <% @movie.viewings.each do |viewing| %>
+      <ul>
+        <li><%= viewing.view_time unless viewing.view_time.nil? %></li>
+      </ul>
+      <% end %>
+
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321145110) do
+ActiveRecord::Schema.define(version: 20160323163130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,24 +21,24 @@ ActiveRecord::Schema.define(version: 20160321145110) do
     t.string   "ombd_id"
     t.string   "ombd_poster"
     t.string   "youtube"
-    t.boolean  "playing_now"
-    t.boolean  "upcoming"
+    t.string   "playing_now"
+    t.string   "upcoming"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "rating"
   end
 
   create_table "ticket_details", force: :cascade do |t|
-    t.integer  "price"
+    t.string   "ticket_style"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "ticket_style"
+    t.string   "ticket_cost"
   end
 
   create_table "ticket_purchases", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.boolean  "age_confirm"
+    t.string   "age_confirm"
     t.string   "cc_number"
     t.string   "cc_cvc"
     t.string   "cc_exp"
@@ -59,12 +59,11 @@ ActiveRecord::Schema.define(version: 20160321145110) do
 
   create_table "viewings", force: :cascade do |t|
     t.integer  "movie_id"
-    t.boolean  "seats_open"
+    t.integer  "viewing_room_id"
     t.string   "view_time"
     t.date     "view_date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "viewing_room_id"
   end
 
 end

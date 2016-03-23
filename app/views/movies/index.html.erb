@@ -1,18 +1,18 @@
-Movies (Index Page)
+<div id="main-head"><h1>Historic Robin Williams Theatre</h1></div>
 
-<section>
-  <article>
-    <h2>Now Playing</h2>
-    <% @now_showing.each do |movie| %>
-      <div class="movie-posters"><%= link_to (image_tag "#{movie.ombd_poster}"), movie_path(movie) %></div>
-    <% end %>
-  </article>
+  <h2>Now Playing</h2>
+    <section id="main-page-movies">
+      <article>
+      <% @now_showing.each do |movie| %>
+        <div class="movie-posters"><%= link_to (image_tag "#{movie.ombd_poster}"), movie_path(movie) %></div>
+      <% end %>
+    </article>
 
 
-    <article>
-      <h2>Coming Soon</h2>
-      <% @coming_soon.each do |movie| %>
-      <%= link_to (image_tag "#{movie.ombd_poster}"), movie_path(movie) %>
-    <% end %>
-  </article>
+      <article>
+        <h2>Coming Soon</h2>
+        <% @coming_soon.each do |movie| %>
+        <%= link_to (image_tag "#{movie.ombd_poster}"), movie_path(movie) %>
+      <% end %>
+    </article>
   </section>

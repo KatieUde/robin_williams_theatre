@@ -34,10 +34,9 @@
   <div class="form-group">
     <%= f.label :ticket_price, class: "col-sm-2 control-label" %>
     <div class="col-sm-5">
-      <!-- <%= f.text_field :price, class: "form-control" %> -->
       <div class="input-group">
         <span class="input-group-addon">$</span>
-        <input type="number.to_i" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <input type="text" name="ticket_cost" class="form-control" aria-label="Amount (to the nearest dollar)">
         <span class="input-group-addon">.00</span>
       </div>
     </div>
@@ -64,7 +63,7 @@
           <% @ticket_details.each do |ticket_detail| %>
         <tr>
           <td class="table_body"><%= ticket_detail.ticket_style %></td>
-          <td class="table_body">$<%= ticket_detail.price%></td>
+          <td class="table_body">$<%= ticket_detail.ticket_cost%></td>
           <td class="table_body">
             <%= link_to 'Edit', edit_ticket_detail_path(ticket_detail) %>
           </td>
