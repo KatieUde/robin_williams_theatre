@@ -53,8 +53,8 @@
       <%= f.label :seats_available, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
         <select class="form-control" <%= f.select :seats_open, ['True', 'False'] %></select>
-        <!-- <input class="radio-inline" type="radio" name="seats_open" id="inlineRadio1" value="true" /> Yes -->
-        <!-- <input class="radio-inline" type="radio" name="seats_open" id="inlineRadio2" value="false" /> No -->
+        <!-- <input class="radio-inline" type="radio" name="seats_open" id="inlineRadio1" value="True".to_bool /> Yes
+        <input class="radio-inline" type="radio" name="seats_open" id="inlineRadio2" value="false".to_bool /> No -->
       </div>
     </div>
     <div class="form-group">
