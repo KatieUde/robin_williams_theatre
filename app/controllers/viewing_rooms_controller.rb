@@ -17,6 +17,7 @@ class ViewingRoomsController < ApplicationController
   end
 
   def edit
+    @viewing_room = ViewingRoom.find(params[:id])
   end
 
   def create
@@ -35,6 +36,18 @@ class ViewingRoomsController < ApplicationController
   end
 
   def update
+    @viewing_room = ViewingRoom.find(params[:id])
+    @viewing_room.update(viewing_room_params)
+
+    respond_to do |format|
+      if @viewing_room.save
+        format.html { redirect_to new_viewing_room_path, notice: "Auditorium was successfully updated." }
+        format.json { render :show, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @viewing_room.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy

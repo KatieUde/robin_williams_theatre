@@ -37,14 +37,14 @@
       <!-- <%= f.text_field :price, class: "form-control" %> -->
       <div class="input-group">
         <span class="input-group-addon">$</span>
-        <input type="number" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <input type="number.to_i" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
         <span class="input-group-addon">.00</span>
       </div>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-8">
-      <%= f.submit class: "btn-sm btn-primary" %>
+      <%= f.submit class: "btn btn-default" %>
     </div>
   </div>
 <% end %>
@@ -66,10 +66,10 @@
           <td class="table_body"><%= ticket_detail.ticket_style %></td>
           <td class="table_body">$<%= ticket_detail.price%></td>
           <td class="table_body">
-            <a class="btn-sm btn-default" href='/viewing_rooms/<%= ticket_detail.id %>/edit' role="button">Update</a>
+            <%= link_to 'Edit', edit_ticket_detail_path(ticket_detail) %>
           </td>
           <td class="table_body">
-            <a class="btn-sm btn-default" href='/viewing_rooms/<%= ticket_detail.id %>/destroy' role="button">Remove</a>
+            <%= link_to 'Destroy', ticket_detail, method: :delete, data: { confirm: 'Do you really want to remove this movie?' } %>
           </td>
       <% end %>
     </table>

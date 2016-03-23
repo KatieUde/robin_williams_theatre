@@ -1,2 +1,42 @@
-<h1>ViewingRooms#edit</h1>
-<p>Find me in app/views/viewing_rooms/edit.html.erb</p>
+<div id="update_auditoriums">
+  <h3>Update Details for Auditorium <%= @viewing_room.room_number %></h3>
+
+<br>
+<br>
+
+<div>
+  <%= form_for(@viewing_room, html: { class: "form-horizontal", role: "form" }) do |f| %>
+    <% if @viewing_room.errors.any? %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3>
+        <%= pluralize(@viewing_room.errors.count, "error") %> prohibited this auditorium from being saved:
+      </h3>
+      <ul>
+        <% @viewing_room.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :id, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :auditorium, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :room_number, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :seating_capacity, class: "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :seat_max, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <%= f.submit class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>
+</div>

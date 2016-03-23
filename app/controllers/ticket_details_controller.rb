@@ -27,8 +27,29 @@ class TicketDetailsController < ApplicationController
     end
   end
 
+  def edit
+    @ticket_detail = TicketDetail.find(params[:id])
+    # @movie.update(movie_params)
+  end
+
+  def update
+    @ticket_detail = TicketDetail.find(params[:id])
+    @ticket_detail.update(ticket_detail_params)
+
+    respond_to do |format|
+      if @ticket_detail.save
+        format.html { redirect_to new_ticket_detail_path, notice: "Ticket type was successfully updated." }
+        format.json { render :show, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: @ticket_detail.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   def destroy
-    @ticket_detail = Movie.find(params[:id])
+    @ticket_detail = TicketDetail.find(params[:id])
     @ticket_detail.destroy
     respond_to do |format|
       format.html { redirect_to ticket_details_url, notice: "This ticket type has been successfully removed." }
