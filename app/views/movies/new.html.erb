@@ -1,7 +1,10 @@
+
 <div>
   <h3>Add & Edit Movies Playing</h3>
 </div>
   <br>
+<!-- MOVIE FORM ERROR MESSAGING -->
+
 <div>
   <%= form_for(@movie, html: { class: "form-horizontal", role: "form" }) do |f| %>
     <% if @movie.errors.any? %>
@@ -17,6 +20,9 @@
       </ul>
     </div>
   <% end %>
+
+  <!-------------------------------------->
+  <!-- FORM FOR NEW MOVIE CREATION ------->
 
     <div class="form-group">
       <%= f.label :movie_title, class: "col-sm-2 control-label" %>
@@ -69,7 +75,8 @@
 </div>
 
 <br>
-
+<!-------------------------------------->
+<!--- EDIT EXISTING MOVIES -------->
 
 <div class="col-md-7" id="movie-list">
   <table class="table">

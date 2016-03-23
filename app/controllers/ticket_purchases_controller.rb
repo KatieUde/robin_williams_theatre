@@ -26,6 +26,15 @@ class TicketPurchasesController < ApplicationController
       end
     end
 
+    def check_for_ticket
+      if @viewing.seats_left < @tickets.values.map().sum
+        redirect_to :back, :notice => "It seems we don't have enough tickets left to complete your order. Please modify your ticket count or pick a new showtime."
+      end
+      rescue ActionController::RedirectBackError
+        redirect_to root_path, :notice => "We seem to be experiencing some technical difficulties. Please re-try your purchase"
+    end
+
+
 private
 
   def ticket_purchase_params

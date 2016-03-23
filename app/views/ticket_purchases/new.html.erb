@@ -2,6 +2,8 @@
   <h3>Purchase Movie Tickets</h3>
 </div>
   <br>
+<!-- TICKET PURCHASE ERROR MESSAGING -->
+
 <div>
   <%= form_for(@ticket_purchase, html: { class: "form-horizontal", role: "form" }) do |f| %>
     <% if @ticket_purchase.errors.any? %>
@@ -17,6 +19,9 @@
       </ul>
     </div>
   <% end %>
+
+  <!-------------------------------------->
+  <!-- FORM FOR NEW TICKET PURCHASE CREATION ------->
 
     <div class="form-group">
       <%= f.label :movie, class: "col-sm-2 control-label" %>
@@ -57,10 +62,7 @@
     <div class="form-group">
       <%= f.label :over_17, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
-        <%= select_tag(:age_confirm, options_for_select(['Please Select', 'Yes', 'No']),
-        class: "form-control") %>
-        <!-- <input class="radio-inline" type="radio" name="seats_open" id="inlineRadio1" value="true".to_boolean /> Yes
-        <input class="radio-inline" type="radio" name="seats_open" id="inlineRadio2" value="false".to_boolean /> No -->
+        <%= f.text_field :age_confirm, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">

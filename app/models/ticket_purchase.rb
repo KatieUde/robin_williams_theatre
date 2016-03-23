@@ -36,9 +36,43 @@ class TicketPurchase < ActiveRecord::Base
                         format: { with: VALID_ZIP_CODE_REGEX,
                         message: "Zip codes should be five digits. No need to include the four USPS digits." }
 
+  def create_tickets(tickets, ticket_purchase_id)
+    tickets.each do |k,v|
+      to.to_i.times do
+        Ticket.create!(
+          :viewing_id => viewing_id,
+          :ticket_purchase_id => self.id,
+          :ticket_detail_id => k.to_i
+        )
+      end
+    end
+  end
+
+  def ticket_kind_hash
+    ticket_kinds = Hash.new 0
+    self.tickets.each do |ticket|
+      ticket_kinds[ticket.ticket_detail.ticket_style] += 1
+    end
+    return ticket_kinds
+  end
+
+  def find_sales_total
+    sales_total = 0
+    self.tickets.each do |ticket|
+      sales_total += ticket.ticket_detail.ticket_cost
+    end
+    self.sales_total = sales_total
+    self.save(:validate => false)
+  end
+
+  # Operating Costs could be subtracted from this method in the future
+  def theatre_revenue
+    self.ticket_purchases.sum(:sales_total)
+  end
+
   def purchase_age_confirm
-    if self.movie.rating == "R" && self.age_confirm == false
-      errors.add(:purchase_age_confirm, "This movie is Rated R. You must be 17 to buy a ticket for it")
+    if self.movie.rating == "R" && self.age_confirm == "no"
+      errors.add(:purchase_age_confirm, "This movie is Rated R. You must be at least 17 to buy a ticket for it.")
     end
   end
 

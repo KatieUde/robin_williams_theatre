@@ -1,8 +1,8 @@
 <div id="main-head"><h1>Historic Robin Williams Theatre</h1></div>
 
   <h2>Now Playing</h2>
-    <section id="main-page-movies">
-      <article>
+    <section>
+      <article id="main-page-movies">
       <% @now_showing.each do |movie| %>
         <div class="movie-posters"><%= link_to (image_tag "#{movie.ombd_poster}"), movie_path(movie) %></div>
       <% end %>
