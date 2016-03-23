@@ -60,7 +60,7 @@ class TicketDetailsController < ApplicationController
 private
 
   def ticket_detail_params
-    params.require(:ticket_detail).permit(:value, :ticket_style)
+    params.require(:ticket_detail).permit(:ticket_cost, :ticket_style)
   end
 
 end
