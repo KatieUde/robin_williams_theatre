@@ -38,7 +38,7 @@
           <%= f.label :ticket_type, class: "col-sm-2 control-label" %>
             <div class="col-sm-5">
               <select class= "form-control"
-                <%= collection_select(:ticket_purchase, :final_cost, TicketDetail.all, :price, :ticket_style, prompt: true) %>
+                <%= collection_select(:ticket_purchase, :final_cost, TicketDetail.all, :ticket_cost, :ticket_style, prompt: true) %>
               </select>
             </div>
           </div>

@@ -32,18 +32,16 @@
     </div>
     <div class="form-group">
       <%= f.label :now_showing, class: "col-sm-2 control-label" %>
-        <div class="col-sm-5">
-          <input class="radio-inline" type="radio" name="playing_now" id="inlineRadio1" value="true".to_boolean /> Yes
-          <input class="radio-inline" type="radio" name="playing_now" id="inlineRadio2" value="false".to_boolean /> No
-        </div>
+      <div class="col-sm-5">
+        <%= f.text_field :playing_now, class: "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :coming_soon, class: "col-sm-2 control-label" %>
-          <div class="col-sm-5">
-            <input class="radio-inline" type="radio" name="upcoming" id="inlineRadio1" value="true".to_boolean /> Yes
-            <input class="radio-inline" type="radio" name="upcoming" id="inlineRadio2" value="false".to_boolean /> No
-          </div>
-        </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :coming_soon, class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :upcoming, class: "form-control" %>
+      </div>
+    </div>
     <div class="form-group">
       <%= f.label :movie_number, class: "col-sm-2 control-label" %>
       <div class="col-sm-5">
