@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'admins/index'
+
+  get 'admins/show'
+
   resources :ticket_details, :viewings, :ticket_purchases, :viewing_rooms, :movies
 
   root to: "movies#index"

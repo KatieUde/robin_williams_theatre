@@ -7,13 +7,13 @@
         <li><%= link_to "Movies", '/movies', class: "nav-list" %></li>
         <li><%= link_to "Buy Tickets", '/ticket_purchases/new', class: "nav-list" %></li>
         <li class="dropdown">
-          <a id="main-drop" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a id="main-drop" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a class="drop-list" href="#">Action</a></li>
-            <li><a class="drop-list" href="#">Another action</a></li>
-            <li><a class="drop-list" href="#">Something else here</a></li>
+            <li><a class="drop-list" href="#">Login</a></li>
+            <li><a class="drop-list" href="/admins/index">Manage Theatre</a></li>
+            <li><a class="drop-list" href="admins/show">Sales Dashboard</a></li>
             <li role="separator" class="divider"></li>
-            <li><a class="drop-list" href="#">Separated link</a></li>
+            <li><a class="drop-list" href="#">Logout</a></li>
           </ul>
         </li>
       </ul>

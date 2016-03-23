@@ -5,6 +5,7 @@ module StringToBoolean
     raise ArgumentError.new("invalid value for Boolean: \"#{self}\"")
   end
 end
+
 class String; include StringToBoolean; end
 
 module BooleanToBoolean
