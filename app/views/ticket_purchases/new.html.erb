@@ -89,6 +89,9 @@
         <%= f.number_field :zip_code, class: "form-control" %>
       </div>
     </div>
+    <% @tickets.each do |k,v| %>
+      <%= hidden_field_tag "tickets[#{k}]", v %>
+    <% end %>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-8">
         <%= f.submit class: "btn btn-default" %>

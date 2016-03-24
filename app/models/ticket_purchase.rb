@@ -3,6 +3,7 @@ class TicketPurchase < ActiveRecord::Base
 
   belongs_to :viewing
   belongs_to :movie
+  has_many :tickets
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+\.[a-z]+\z/i
   VALID_CREDIT_CARD_REGEX = /(^\d{15,16}$)/

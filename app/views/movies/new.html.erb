@@ -1,8 +1,8 @@
 
-<div>
-  <h3>Add & Edit Movies Playing</h3>
+<div class="movie-header">
+  <h3>Add Movies Playing</h3>
 </div>
-  <br>
+
 <!-- MOVIE FORM ERROR MESSAGING -->
 
 <div>
@@ -25,49 +25,49 @@
   <!-- FORM FOR NEW MOVIE CREATION ------->
 
     <div class="form-group">
-      <%= f.label :movie_title, class: "col-sm-2 control-label" %>
+      <%= f.label :movie_title, class: "col-sm-2 col-sm-offset-2 control-label" %>
       <div class="col-sm-5">
         <%= f.text_field :name, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :rated, class: "col-sm-2 control-label" %>
+      <%= f.label :rated, class: "col-sm-2 col-sm-offset-2 control-label" %>
       <div class="col-sm-5">
         <%= f.text_field :rating, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :now_showing, class: "col-sm-2 control-label" %>
+      <%= f.label :now_showing, class: "col-sm-2 col-sm-offset-2 control-label" %>
       <div class="col-sm-5">
         <%= f.text_field :playing_now, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :coming_soon, class: "col-sm-2 control-label" %>
+      <%= f.label :coming_soon, class: "col-sm-2 col-sm-offset-2 control-label" %>
       <div class="col-sm-5">
         <%= f.text_field :upcoming, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :movie_number, class: "col-sm-2 control-label" %>
+      <%= f.label :movie_number, class: "col-sm-2 col-sm-offset-2 control-label" %>
       <div class="col-sm-5">
         <%= f.text_field :ombd_id, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :movie_poster, class: "col-sm-2 control-label" %>
+      <%= f.label :movie_poster, class: "col-sm-2 col-sm-offset-2 control-label" %>
       <div class="col-sm-5">
         <%= f.text_field :ombd_poster, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :official_trailer, class: "col-sm-2 control-label" %>
+      <%= f.label :official_trailer, class: "col-sm-2 col-sm-offset-2 control-label" %>
       <div class="col-sm-5">
         <%= f.text_field :youtube, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-8">
+      <div class="col-sm-offset-6 col-sm-5">
         <%= f.submit class: "btn btn-default" %>
       </div>
     </div>
@@ -77,8 +77,11 @@
 <br>
 <!-------------------------------------->
 <!--- EDIT EXISTING MOVIES -------->
+<div class="movie-header">
+  <h3>Edit Movies Playing</h3>
+</div>
 
-<div class="col-md-7" id="movie-list">
+<div class="col-md-7 col-sm-offset-2" id="movie-list">
   <table class="table">
     <tbody>
       <tr>

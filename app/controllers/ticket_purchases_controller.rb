@@ -12,6 +12,7 @@ class TicketPurchasesController < ApplicationController
     @movies = Movie.all
     @viewings = Viewing.all
     @ticket_purchase = TicketPurchase.new
+    @tickets = Ticket.all
   end
 
   def create
@@ -34,10 +35,14 @@ class TicketPurchasesController < ApplicationController
         redirect_to root_path, :notice => "We seem to be experiencing some technical difficulties. Please re-try your purchase"
     end
 
+    def new_variables
+      @tickets = params[:tickets]
+    end
+
 
 private
 
   def ticket_purchase_params
-    params.require(:ticket_purchase).permit(:name, :email, :age_confirm, :cc_number, :cc_cvc, :cc_exp, :final_cost, :zip_code, :movie_id, :viewing_id)
+    params.require(:ticket_purchase).permit(:name, :email, :age_confirm, :cc_number, :cc_cvc, :cc_exp, :final_cost, :zip_code, :movie_id, :viewing_id, :tickets)
   end
 end

@@ -1,3 +1,17 @@
 // Place all the styles related to the ticket_purchases controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#order-confirm {
+  background-color: black;
+  color: white;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+#confirm-container {
+  margin-left: 12em;
+  margin-right: 12em;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}

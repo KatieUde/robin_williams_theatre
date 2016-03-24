@@ -1,23 +1,23 @@
 <h2>Sales Dashboard</h2>
 
-
-<div class="col-md-7" id="ticket-sales-list">
-  <table class="table">
-    <tbody>
-      <tr>
-        <th class="table_head">Name</th>
-        <th class="table_head">Email</th>
-        <th class="table_head">Zip code</th>
-        <th class="table_head">Movie</th>
-        <th class="table_head">Ticket Price</th>
-        </tr>
-          <% @ticket_purchases.each do |ticket_purchase| %>
+<div class="col-sm-offset-5" id="total-sales-head"><h4>Total Theatre Sales</h4></div>
+  <div class="col-md-8 col-sm-offset-2" id="ticket-sales-list">
+    <table class="table">
+      <tbody>
         <tr>
-          <td class="table_body"><%= ticket_purchase.name %></td>
-          <td class="table_body"><%= ticket_purchase.email%></td>
-          <td class="table_body"><%= ticket_purchase.zip_code %></td>
-          <td class="table_body"><%= ticket_purchase.movie.name%></td>
-          <td class="table_body">$<%= ticket_purchase.final_cost%>.00</td>
-      <% end %>
-    </table>
-  </div>
+          <th class="table_head">Name</th>
+          <th class="table_head">Email</th>
+          <th class="table_head">Zip code</th>
+          <th class="table_head">Movie</th>
+          <th class="table_head">Ticket Price</th>
+          </tr>
+            <% @ticket_purchases.each do |ticket_purchase| %>
+          <tr>
+            <td class="table_body"><%= ticket_purchase.name %></td>
+            <td class="table_body"><%= ticket_purchase.email%></td>
+            <td class="table_body"><%= ticket_purchase.zip_code %></td>
+            <td class="table_body"><%= ticket_purchase.movie.name%></td>
+            <td class="table_body">$<%= ticket_purchase.final_cost%>.00</td>
+        <% end %>
+      </table>
+    </div>
