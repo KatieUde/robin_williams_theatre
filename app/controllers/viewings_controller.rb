@@ -25,6 +25,7 @@ class ViewingsController < ApplicationController
   end
 
   def edit
+      @viewing = Viewing.find(params[:id])
   end
 
   def show

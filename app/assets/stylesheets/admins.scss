@@ -1,6 +1,12 @@
 // Place all the styles related to the admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#admin-head {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
 #total-sales-head {
   padding-top: 3em;
   padding-bottom: 1em;
