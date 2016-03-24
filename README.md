@@ -1,6 +1,8 @@
 ### Creating the Website for Robin Williams Theatre
 
-##### Application Summary: This project is a web application that can be used by a movie theater owner or other administrative-level employee, so users can purchase tickets online and sales can be tracked. The requirements provided by the client are listed at the bottom. In addition, please see the following run-down of how I went about building this as well as future enhancements and roadblocks I ran into:
+##### Application Summary: 
+
+This project is a web application that can be used by a movie theater owner or other administrative-level employee, so users can purchase tickets online and sales can be tracked. The requirements provided by the client are listed at the bottom. In addition, please see the following run-down of how I went about building this as well as future enhancements and roadblocks I ran into:
 
 The first thing I did after receiving the list of requirements was sit down and consider what the main purpose of the application was and if there were any potential user stories/cases to consider outside the scope of the client requirements. Next, I went ahead and created a wire frame for how I thought the application should flow and feel. In addition, I also created my models and associations:
 
@@ -19,6 +21,18 @@ However, that being said the user will receive a confirmation email once their o
 The rest of the functioning pages on the app are the admin dashboard functionalities. I have a placeholder link for 'about us' as well as an admin 'login/logout' in the admin drop-down, which in theory would restrict access to the dashboard, but I didn't have time to complete those aspects of my design. The manage theatre link takes one to a page where all the movie related specifics can be managed. It is here that an admin can add/edit/ movies, ticket types, auditoriums, movie viewings. Within the sales dashboard, the admin can see a list of ticket purchases for all the movies.
 
 ##### Refactoring Opportunities, Fixes, & Roadblocks:
+
+This list of items contains opportunities for improvement and/or enhancements that theoritically would be implemented in the next sprint and subsequent release of this application:
+
+1. As I mention briefly above, I ran into a roadblock in regards to utilizing booleans and posting them properly to the database, esp. when attempting to include them in dropdowns or radio buttons. I think I fell down a rabbit hole of trying to figure this out via the Rails API, stack overflow + google in general and should have thrown in the towel sooner than my hack of using yes/no + text fields.
+2. I didn't have time to research and teach myself enough rspec to properly test the work I was doing. We breezed through rails during the last week of classtime at General Assembly, so we didn't really go in depth on the framework in general much less touch testing for more than an hour overview. However, I very much believe in the necessity of TDD and figuring that out is on my shortlist.
+3. I used bootstrap for styling to ensure the app would be responsive, but I had way less time for styling than I would have liked and did my best to make little tweaks to have it at least be palatable. 
+4. I was able to successfully implement the ombd API to populate the movie details, but didn't have time to implemenet embedded youtube movie trailers like I wanted.
+5. Complications with transference of data via hashes. This was another rabbit hole for me in regards to a few aspects of my functionality. As this was only the second rails application I have built, I had several occassions in which I knew the values I wanted/needed to pass to the next page, but was unable to properly pass that via the hash. In some instances, I was able to figure out how to send the proper variable, ex: showing moving name in my ticket purchase drop-down, but sending the movie id to the database and in other instances I was not, ex: finding proper id to pull specific showtimes for specific movie on the movie details page. In addition, I attempted another hack with figuring out seat selling out situation as I attempted to create a new hash for my tickets, but sadly did *not* finish & ran out of time trying to implement that. However, each showtime does have a limited number of seats.
+6. Date/time formatting complications -- another item that I ran out of time with researching. I know there are ways to convert the values that I needed to, but in order to make the deadline, they are submitted in a non-graceful format, but do properly save to the database and can be found/retrieved.
+7. Rookie mistake with the forms of not implementing partials. I realized well into this endeavor as I was researching form drop-downs that I could have been way more efficient and way more DRY with my code if I had implemented partials in my forms. Needless to say that is a mistake I will not be making again.
+
+That being said, I had a lot of fun amongst the inevitable frustrations and learned so much from this experience. All of the previous projects I have worked on thus far were open-ended in regards to requirements and being able to apply concepts to an actual structured mock client experience was very beneficial!
 
 ##### Requirements provided by LPL that the client would like implemented:
 
@@ -48,4 +62,4 @@ She wants to see a list of all orders and a list of orders for each movie. We do
 
 We're not worried about custom visual design, so feel free to use any CSS framework, or roll your own.
 
-However, we need the site to work on mobile, so keep that in mind
+However, we need the site to work on mobile, so keep that in mind.
