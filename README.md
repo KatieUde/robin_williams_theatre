@@ -6,9 +6,9 @@ This project is a web application that can be used by a movie theater owner or o
 
 The first thing I did after receiving the list of requirements was sit down and consider what the main purpose of the application was and if there were any potential user stories/cases to consider outside the scope of the client requirements. Next, I went ahead and created a wire frame for how I thought the application should flow and feel. In addition, I also created my models and associations:
 
-[Wireframes](drive.google.com/file/d/0B5ZU55Leu8RVNjBWSXVuNmVmNTg/view?usp=sharing)
+[Wireframes](https://drive.google.com/file/d/0B5ZU55Leu8RVNjBWSXVuNmVmNTg/view?usp=sharing)
 
-[Models and associations](drive.google.com/file/d/0B5ZU55Leu8RVN192RGk4ZnplbUk/view?usp=sharing)
+[Models and associations](https://drive.google.com/file/d/0B5ZU55Leu8RVN192RGk4ZnplbUk/view?usp=sharing)
 
 When I initially created this, I broke the elements out into 5 models: movies, ticket details, ticket purchases, viewings, and viewing rooms. The movie model contains relevant information for a movie goer such as the name and rating, but also includes some values for populating images as well as making a 3rd party API request to omdb. Ticket details contains the ticket type and price, to encompass current and future needs. Viewings lets the admin pick a movie and place it in a specific auditorium at a designated date & time. While viewings rooms allows the admin to set the auditorium number as well as seating capacity. Last, ticket purchases is where all the information lives when buying a ticket.
 
